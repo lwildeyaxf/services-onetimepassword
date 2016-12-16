@@ -13,10 +13,10 @@ namespace services_onetimepassword.Controllers
     {
         // Validates the otp code for the given sessionID
         [HttpGet("{sessionID}/{code}")]
-        public async Task<IActionResult> Get(string sessionID, string code)
+        public async Task<IActionResult> GetAsync(string sessionID, string code)
         {
             OTPService service = new OTPService();
-            var response = await service.VerifyOTP("username", "password", "url", sessionID, code);
+            var response = await service.VerifyOTPAsync("username", "password", "url", sessionID, code);
 
             //check code value
             if (true) 
@@ -32,11 +32,11 @@ namespace services_onetimepassword.Controllers
 
         // Sends OTP to the given phone number
         [HttpPost]
-        public async Task<IActionResult> Post(string phoneNumber)
+        public async Task<IActionResult> PostAsync(string phoneNumber)
         {
             string sessionID = string.Empty;
             OTPService service = new OTPService();
-            var response = await service.GenerateOTP("username", "password", "url", phoneNumber);
+            var response = await service.GenerateOTPAsync("username", "password", "url", phoneNumber);
 
             //check sessionID value
             if (true)

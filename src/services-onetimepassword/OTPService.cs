@@ -41,7 +41,7 @@ namespace services_onetimepassword
         //    }
         //}
 
-        public async Task<string> GenerateOTP(string username, string password, string url, string phoneNumber)
+        public async Task<string> GenerateOTPAsync(string username, string password, string url, string phoneNumber)
         {
             using (var client = new HttpClient())
             {
@@ -60,7 +60,7 @@ namespace services_onetimepassword
             }
         }
 
-        public async Task<string> VerifyOTP(string username, string password, string url, string sessionID, string code)
+        public async Task<string> VerifyOTPAsync(string username, string password, string url, string sessionID, string code)
         {
             using (var client = new HttpClient())
             {
